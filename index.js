@@ -90,7 +90,7 @@ app.get("/stupeflip/album/:param", (req, res) => {
 app.get("/stupeflip/order/:param", (req, res) => {
   const param = req.params.param.toUpperCase();
   connection.query(
-    `SELECT * FROM songs_stupeflip ORDER BY title ${param}`,
+    `SELECT * FROM songs_stupeflip ORDER BY ${param} ASC`,
     (err, results) => {
       if (err) {
         res.status(500).send("Erreur lors de la récupération des sons");
